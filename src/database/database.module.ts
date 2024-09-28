@@ -17,6 +17,7 @@ import 'dotenv/config';
         trustServerCertificate: true,
       },
       autoLoadEntities: true,
+      dropSchema: true,
       synchronize: true,
       // synchronize: process.env.DB_SYNCHRONIZE,
     }),
