@@ -1,8 +1,11 @@
 import { ContactInfo } from 'src/contact_info/entities/contact_info.entity';
+import { Meeting } from 'src/meeting/entities/meeting.entity';
 import { Task } from 'src/tasks/entities/task.entity';
 import {
   Column,
   Entity,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   OneToMany,
   OneToOne,
@@ -31,4 +34,8 @@ export class Employee {
 
   @OneToMany(() => Employee, (subordinates) => subordinates.manager)
   subordinates: Employee[];
+
+  @ManyToMany(() => Meeting, (meeting) => meeting.employee)
+  @JoinTable()
+  meeting: Meeting[];
 }
